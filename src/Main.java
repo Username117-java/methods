@@ -42,13 +42,11 @@ public class Main {
         int currentYear = LocalDate.now().getYear();
         if (clientOS != 0 && clientOS != 1) {
             System.out.println("Неизвестная ОС");
-        } else if (clientOS == 1) {
-            if (clientDeviceYear < currentYear) {
-                System.out.println("Установите облегченную версию приложения для Android по ссылке");
-            } else {
-                System.out.println("Установите версию приложения для Android по ссылке");
-            }
-        } else if (clientDeviceYear < currentYear) {
+        } else if (clientOS == 1 && clientDeviceYear < currentYear) {
+            System.out.println("Установите облегченную версию приложения для Android по ссылке");
+        } else if (clientOS == 1 && clientDeviceYear == currentYear) {
+            System.out.println("Установите версию приложения для Android по ссылке");
+        } else if (clientOS == 0 && clientDeviceYear < currentYear) {
             System.out.println("Установите облегченную версию приложения для iOS по ссылке");
         } else {
             System.out.println("Установите версию приложения для iOS по ссылке");
